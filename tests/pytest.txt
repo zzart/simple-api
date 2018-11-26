@@ -1,0 +1,35 @@
+Discovery
+
+1. Test f() should start with `test` at the beginning of the function name
+2. Classes should start with `Test` at the beginning of the class and not have __init__ method
+3. File names of test modules should start or end with `test_*` or `*_test`
+
+Setup and Teardown
+XUnit style setup/teardown functions will execute code before and after:
+- test modules
+- test functions
+- test classes
+- test methods in test classes
+
+Test Fixtures
+- reuse of setup and teardown code across test
+- `pytest.fixture` decorator is applied to functions that will be used as fixtures
+- individual unit tests then specify they want to use that fixture by ref. it in parameter list or by applying pytest.mark.usefixture decorator
+- `autouse` param can be set to true to automatically execute a fixture before each test
+
+Fixures Teardown
+- `yield` keyword can be used and act as `return` statement after which code will be execuded at the end of unittest
+- `addfinalizer` method can be added , which allowes multiple methods to be called
+
+Fixture Scope
+- session
+- module
+- class
+- function
+
+Fixture Params
+@pytest.fixture(params=[1,2,3]) can return different values and have the test run 3 times with 1,2 or 3 as fixture
+
+Testing with pytest
+- using assert statements
+- raising errors with:  with raises(ValueError) raise ValueError
